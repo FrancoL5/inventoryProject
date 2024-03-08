@@ -3,7 +3,7 @@ import { AddItem } from "./addItem"
 
 export function MenuActions() {
     return (
-        <Box bg={"tomato"} as="span">
+        <Box>
             <Stack
                 py="1rem"
                 divider={<StackDivider borderColor={"gray.200"}></StackDivider>}
