@@ -17,6 +17,7 @@ export function AddItem() {
         register,
         formState: { errors },
         handleSubmit,
+        reset,
     } = useForm<Item>()
     return (
         <ComponentDialog
@@ -34,6 +35,7 @@ export function AddItem() {
                 <form
                     onSubmit={handleSubmit((data) => {
                         dispatch(addItem(data))
+                        reset()
                     })}
                 >
                     <SimpleGrid spacing={"1rem"} columns={[1, 2]}>
@@ -95,7 +97,7 @@ export function AddItem() {
                     <Button
                         variant="solid"
                         colorScheme={"teal"}
-                        sx={{ mt: "5px" }}
+                        sx={{ mt: "15px" }}
                         width={"100%"}
                         type="submit"
                     >
