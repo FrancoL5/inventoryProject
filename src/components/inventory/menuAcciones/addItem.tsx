@@ -1,5 +1,5 @@
 import {
-    Button,
+    
     Center,
     Heading,
     Input,
@@ -11,6 +11,8 @@ import { ComponentDialog } from "../../utils/componentDialog"
 import { Item } from "../../../interfaces/items"
 import { useForm } from "react-hook-form"
 import { addItem } from "../../../store/inventarioSlice"
+import { ActionButton, PrimaryButton } from "./customButton"
+import { AddIcon } from "@chakra-ui/icons"
 export function AddItem() {
     const dispatch = useDispatch()
     const {
@@ -22,9 +24,11 @@ export function AddItem() {
     return (
         <ComponentDialog
             buttonCallback={(_, onOpen) => (
-                <Button onClick={onOpen} colorScheme="blue">
+                <ActionButton
+                leftIcon={<AddIcon />}
+                onClick={onOpen} colorScheme="blue">
                     Agregar Item
-                </Button>
+                </ActionButton>
             )}
             header={
                 <Center>
@@ -94,15 +98,13 @@ export function AddItem() {
                             ></Input>
                         </Tooltip>
                     </SimpleGrid>
-                    <Button
-                        variant="solid"
-                        colorScheme={"teal"}
-                        sx={{ mt: "15px" }}
+                    <PrimaryButton
+                        sx={{ mt: "15px" }}                        
                         width={"100%"}
                         type="submit"
                     >
                         Añadir
-                    </Button>
+                    </PrimaryButton>
                 </form>
             }
         ></ComponentDialog>

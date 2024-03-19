@@ -1,18 +1,25 @@
-import { Box, Button, Stack, StackDivider } from "@chakra-ui/react"
+import { Box,  Stack, StackDivider } from "@chakra-ui/react"
 import { AddItem } from "./addItem"
+import { ActionButton } from "./customButton"
+
 
 export function MenuActions() {
+
     return (
         <Box>
             <Stack
                 py="1rem"
                 divider={<StackDivider borderColor={"gray.200"}></StackDivider>}
                 direction="row"
+                justifyContent={"center"}
+                w="100dvw"
+                bg="#273043"
+                backdropFilter={"blur(5px)"}
             >
                 <AddItem></AddItem>
-                <Button colorScheme="cyan">Agregar Item</Button>
-                <Button colorScheme="cyan">Agregar Item</Button>
-                <Button colorScheme="cyan">Agregar Item</Button>
+                <ActionButton >Agregar Item</ActionButton>
+                <ActionButton >Agregar Item</ActionButton>
+                <ActionButton >Agregar Item</ActionButton>
             </Stack>
         </Box>
     )

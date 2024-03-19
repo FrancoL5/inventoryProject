@@ -3,7 +3,7 @@ import { Inventory } from "./components/inventory/Inventory"
 
 function App() {
     return (
-        <Box w={"100dvw"}>
+        <Box bg="#eff6ee" h={"100dvh"} w={"100dvw"}>
             <Container centerContent>
                 <Inventory />
             </Container>
