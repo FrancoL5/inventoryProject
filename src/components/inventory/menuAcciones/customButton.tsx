@@ -13,8 +13,19 @@ export const ActionButton = chakra(Button, {
 })
 export const PrimaryButton = chakra(Button, {
     baseStyle: {
-        bg: "#f02d3a",
-        color: "black",
-        _hover: { bg: "#d92935", borderColor: "white" },
+        bg: "#008DD5",
+        color: "white",
+        transition: "0.25s",
+        _hover: {
+            transition: "0.25s",
+            bg: "#008DD5",
+            backgroundImage: "linear-gradient(rgb(0 0 0/30%) 0 0)",
+            borderColor: "white",
+        },
+        _active: {
+            bg: "#008DD5",
+            backgroundImage: "linear-gradient(rgb(0 0 0/30%) 0 0)",
+            borderColor: "white",
+        },
     },
 })

@@ -1,5 +1,5 @@
 import { Box,  Stack, StackDivider } from "@chakra-ui/react"
-import { AddItem } from "./addItem"
+import { ManageInventory } from "./manageInventory"
 import { ActionButton } from "./customButton"
 
 
@@ -16,7 +16,7 @@ export function MenuActions() {
                 bg="#273043"
                 backdropFilter={"blur(5px)"}
             >
-                <AddItem></AddItem>
+                <ManageInventory></ManageInventory>
                 <ActionButton >Agregar Item</ActionButton>
                 <ActionButton >Agregar Item</ActionButton>
                 <ActionButton >Agregar Item</ActionButton>

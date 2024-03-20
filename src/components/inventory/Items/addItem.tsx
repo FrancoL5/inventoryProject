@@ -1,20 +1,20 @@
 import {
-    
+    Button,
     Center,
     Heading,
     Input,
     SimpleGrid,
     Tooltip,
 } from "@chakra-ui/react"
-import { useDispatch } from "react-redux"
 import { ComponentDialog } from "../../utils/componentDialog"
-import { Item } from "../../../interfaces/items"
 import { useForm } from "react-hook-form"
+import { Item } from "../../../interfaces/items"
+import { useAppDispatch } from "../../../store"
 import { addItem } from "../../../store/inventarioSlice"
-import { ActionButton, PrimaryButton } from "./customButton"
-import { AddIcon } from "@chakra-ui/icons"
+import { PrimaryButton } from "../menuAcciones/customButton"
+
 export function AddItem() {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const {
         register,
         formState: { errors },
@@ -23,13 +23,7 @@ export function AddItem() {
     } = useForm<Item>()
     return (
         <ComponentDialog
-            buttonCallback={(_, onOpen) => (
-                <ActionButton
-                leftIcon={<AddIcon />}
-                onClick={onOpen} colorScheme="blue">
-                    Agregar Item
-                </ActionButton>
-            )}
+            buttonCallback={(_, onOpen) => <Button>Texto</Button>}
             header={
                 <Center>
                     <Heading fontSize={"xl"}>Agregar Item</Heading>
@@ -99,7 +93,7 @@ export function AddItem() {
                         </Tooltip>
                     </SimpleGrid>
                     <PrimaryButton
-                        sx={{ mt: "15px" }}                        
+                        sx={{ mt: "15px" }}
                         width={"100%"}
                         type="submit"
                     >

@@ -1,11 +1,13 @@
 import { Box, Container } from "@chakra-ui/react"
-import { Inventory } from "./components/inventory/Inventory"
+import { MenuActions } from "./components/inventory/menuAcciones/menuActions"
+import { Outlet } from "react-router-dom"
 
 function App() {
     return (
         <Box bg="#eff6ee" h={"100dvh"} w={"100dvw"}>
             <Container centerContent>
-                <Inventory />
+                <MenuActions></MenuActions>
+                <Outlet />
             </Container>
         </Box>
     )
