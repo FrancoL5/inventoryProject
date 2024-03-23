@@ -1,6 +1,6 @@
 import { Box, Container } from "@chakra-ui/react"
-import { MenuActions } from "./components/inventory/menuAcciones/menuActions"
 import { Outlet } from "react-router-dom"
+import { MenuActions } from "./components/navBar/menuActions"
 
 function App() {
     return (

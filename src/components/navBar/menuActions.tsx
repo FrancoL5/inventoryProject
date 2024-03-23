@@ -1,7 +1,7 @@
 import { Box, Stack, StackDivider } from "@chakra-ui/react"
-import { ActionButton } from "./customButton"
 import { SettingsIcon } from "@chakra-ui/icons"
 import { useNavigate } from "react-router-dom"
+import { ActionButton } from "../utils/customButton"
 
 export function MenuActions() {
     const navigate = useNavigate()
@@ -23,7 +23,7 @@ export function MenuActions() {
                     leftIcon={<SettingsIcon />}
                     onClick={() => navigate("./manageInventory")}
                 >
-                    Manejo del Inventario
+                    Manejo de Items
                 </ActionButton>
                 <ActionButton>Agregar Item</ActionButton>
                 <ActionButton>Agregar Item</ActionButton>

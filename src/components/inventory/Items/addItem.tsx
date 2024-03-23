@@ -11,9 +11,13 @@ import { useForm } from "react-hook-form"
 import { Item } from "../../../interfaces/items"
 import { useAppDispatch } from "../../../store"
 import { addItem } from "../../../store/inventarioSlice"
-import { PrimaryButton } from "../menuAcciones/customButton"
+import { PrimaryButton } from "../../utils/customButton"
+import { useState } from "react"
 
 export function AddItem() {
+    const [addResult, setAddResult] = useState<{ addedId: string }>({
+        addedId: "",
+    })
     const dispatch = useAppDispatch()
     const {
         register,
@@ -23,16 +27,29 @@ export function AddItem() {
     } = useForm<Item>()
     return (
         <ComponentDialog
-            buttonCallback={(_, onOpen) => <Button>Texto</Button>}
+            buttonCallback={(_, onOpen) => (
+                <Button variant="solid" onClick={onOpen}>
+                    Agregar Item
+                </Button>
+            )}
             header={
-                <Center>
+                <Center gap={2} flexDirection="column">
                     <Heading fontSize={"xl"}>Agregar Item</Heading>
+                    {addResult.addedId && (
+                        <Heading fontSize={"lg"}>
+                            Item '{addResult.addedId}' Añadido
+                        </Heading>
+                    )}
                 </Center>
             }
             body={
                 <form
                     onSubmit={handleSubmit((data) => {
                         dispatch(addItem(data))
+                        setAddResult((prev) => ({
+                            ...prev,
+                            addedId: data.code,
+                        }))
                         reset()
                     })}
                 >

@@ -2,6 +2,7 @@ import {
     Card,
     CardBody,
     Center,
+    IconButton,
     Table,
     TableContainer,
     Tbody,
@@ -10,6 +11,7 @@ import {
     Tr,
 } from "@chakra-ui/react"
 import { Items } from "../../../interfaces/items"
+import { HamburgerIcon } from "@chakra-ui/icons"
 
 export function ShowItemsTable({ items }: { items: Items }) {
     return (
@@ -34,6 +36,9 @@ export function ShowItemsTable({ items }: { items: Items }) {
                                 <Th>
                                     <Center>Profundidad</Center>
                                 </Th>
+                                <Th>
+                                    <Center>Acciones</Center>
+                                </Th>
                             </Tr>
                         </Thead>
                         <Tbody>
@@ -53,6 +58,16 @@ export function ShowItemsTable({ items }: { items: Items }) {
                                     </Th>
                                     <Th>
                                         <Center>{item.depth}</Center>
+                                    </Th>
+                                    <Th>
+                                        <Center>
+                                            <IconButton
+                                                variant="outline"
+                                                colorScheme="teal"
+                                                aria-label="edit"
+                                                icon={<HamburgerIcon />}
+                                            ></IconButton>
+                                        </Center>
                                     </Th>
                                 </Tr>
                             ))}

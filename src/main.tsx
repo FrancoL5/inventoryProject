@@ -1,6 +1,5 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import App from "./App.tsx"
 import "./index.css"
 import { ChakraProvider } from "@chakra-ui/react"
 import { Provider } from "react-redux"
@@ -15,5 +14,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 <RouterProvider router={router} />
             </ChakraProvider>
         </Provider>
-    </React.StrictMode>
+    </React.StrictMode>,
 )
