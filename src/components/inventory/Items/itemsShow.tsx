@@ -11,10 +11,19 @@ import {
     Thead,
     Tr,
 } from "@chakra-ui/react"
-import { Items } from "../../../interfaces/items"
+import { ItemsWithID } from "../../../interfaces/items"
 import { HamburgerIcon } from "@chakra-ui/icons"
+import { useAppDispatch, useAppSelector } from "../../../store"
+import {
+    markSelectAll,
+    markSelectItem,
+    selectMarkItems,
+} from "../../../store/inventarioSlice"
 
-export function ShowItemsTable({ items }: { items: Items }) {
+export function ShowItemsTable({ items }: { items: ItemsWithID }) {
+    const dispatch = useAppDispatch()
+    const checkedItems = useAppSelector(selectMarkItems)
+    const checkedAll = checkedItems.length === items.length && items.length > 0
     return (
         <Card variant={"outline"}>
             <CardBody>
@@ -23,7 +32,17 @@ export function ShowItemsTable({ items }: { items: Items }) {
                         <Thead>
                             <Tr>
                                 <Th>
-                                    <Center>Seleccionar</Center>
+                                    <Center>
+                                        <Checkbox
+                                            isChecked={checkedAll}
+                                            isIndeterminate={!checkedAll && checkedItems.length > 0}
+                                            onChange={(e) =>
+                                                dispatch(markSelectAll(e.target.checked))
+                                            }
+                                            mr="0.75rem"
+                                        ></Checkbox>
+                                        Seleccionar
+                                    </Center>
                                 </Th>
                                 <Th>
                                     <Center>Nombre</Center>
@@ -50,7 +69,17 @@ export function ShowItemsTable({ items }: { items: Items }) {
                                 <Tr key={i}>
                                     <Th>
                                         <Center>
-                                            <Checkbox></Checkbox>
+                                            <Checkbox
+                                                isChecked={item.selected}
+                                                onChange={() => {
+                                                    dispatch(
+                                                        markSelectItem({
+                                                            id: item.id,
+                                                            select: !item.selected,
+                                                        })
+                                                    )
+                                                }}
+                                            ></Checkbox>
                                         </Center>
                                     </Th>
                                     <Th>
