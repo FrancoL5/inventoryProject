@@ -1,5 +1,5 @@
 import { PayloadAction, createSelector, createSlice } from "@reduxjs/toolkit"
-import { Item, ItemWithID, ItemsWithID } from "../interfaces/items"
+import { Item, ItemWithID, Items, ItemsWithID } from "../interfaces/items"
 import { RootState } from "../store"
 
 const initialState = {
@@ -15,7 +15,7 @@ export const inventarioSlice = createSlice({
             state.lastId += 1
             state.items.push({ ...action.payload, id: state.lastId })
         },
-        updateItems: (state, action: PayloadAction<ItemWithID>) => {
+        updateItem: (state, action: PayloadAction<ItemWithID>) => {
             state.items = state.items.map((item) =>
                 item.id === action.payload.id ? action.payload : item
             )
@@ -37,9 +37,17 @@ export const inventarioSlice = createSlice({
                 return { ...item, selected: action.payload }
             })
         },
+        importItems: (state, action: PayloadAction<Items>) => {
+            state.items.concat(
+                action.payload.map((item) => {
+                    state.lastId += 1
+                    return { ...item, id: state.lastId }
+                })
+            )
+        },
     },
 })
-export const { addItem, markSelectItem, markSelectAll, updateItems } =
+export const { addItem, markSelectItem, markSelectAll, updateItem } =
     inventarioSlice.actions
 export const selectItems = (state: RootState) => state.inventario.items
 

@@ -12,7 +12,7 @@ import {
     Tr,
 } from "@chakra-ui/react"
 import { ItemsWithID } from "../../../interfaces/items"
-import { HamburgerIcon } from "@chakra-ui/icons"
+import { EditIcon } from "@chakra-ui/icons"
 import { useAppDispatch, useAppSelector } from "../../../store"
 import {
     markSelectAll,
@@ -101,9 +101,9 @@ export function ShowItemsTable({ items }: { items: ItemsWithID }) {
                                         <Center>
                                             <IconButton
                                                 variant="outline"
-                                                colorScheme="teal"
+                                                colorScheme="black"
                                                 aria-label="edit"
-                                                icon={<HamburgerIcon />}
+                                                icon={<EditIcon />}
                                             ></IconButton>
                                         </Center>
                                     </Th>

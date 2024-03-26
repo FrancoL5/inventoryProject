@@ -28,9 +28,9 @@ export function AddItem() {
     return (
         <ComponentDialog
             buttonCallback={(_, onOpen) => (
-                <Button variant="solid" onClick={onOpen}>
+                <PrimaryButton variant="solid" onClick={onOpen}>
                     Agregar Item
-                </Button>
+                </PrimaryButton>
             )}
             header={
                 <Center gap={2} flexDirection="column">
