@@ -5,10 +5,8 @@ import { MenuActions } from "./components/navBar/menuActions"
 function App() {
     return (
         <Box bg="#eff6ee" h={"100dvh"} w={"100dvw"}>
-            <Container centerContent>
-                <MenuActions></MenuActions>
-                <Outlet />
-            </Container>
+            <MenuActions></MenuActions>
+            <Outlet />
         </Box>
     )
 }

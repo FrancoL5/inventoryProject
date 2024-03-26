@@ -1,5 +1,5 @@
 import { Box, Stack, StackDivider } from "@chakra-ui/react"
-import { SettingsIcon } from "@chakra-ui/icons"
+import { EditIcon, SettingsIcon } from "@chakra-ui/icons"
 import { useNavigate } from "react-router-dom"
 import { ActionButton } from "../utils/customButton"
 
@@ -25,8 +25,10 @@ export function MenuActions() {
                 >
                     Manejo de Items
                 </ActionButton>
-                <ActionButton>Agregar Item</ActionButton>
-                <ActionButton>Agregar Item</ActionButton>
+                <ActionButton leftIcon={<EditIcon />}>
+                    Control del Inventario
+                </ActionButton>
+                <ActionButton>PlaceHolder</ActionButton>
             </Stack>
         </Box>
     )

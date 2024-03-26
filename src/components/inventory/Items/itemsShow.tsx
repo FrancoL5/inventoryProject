@@ -2,6 +2,7 @@ import {
     Card,
     CardBody,
     Center,
+    Checkbox,
     IconButton,
     Table,
     TableContainer,
@@ -21,6 +22,9 @@ export function ShowItemsTable({ items }: { items: Items }) {
                     <Table>
                         <Thead>
                             <Tr>
+                                <Th>
+                                    <Center>Seleccionar</Center>
+                                </Th>
                                 <Th>
                                     <Center>Nombre</Center>
                                 </Th>
@@ -44,6 +48,11 @@ export function ShowItemsTable({ items }: { items: Items }) {
                         <Tbody>
                             {items.map((item, i) => (
                                 <Tr key={i}>
+                                    <Th>
+                                        <Center>
+                                            <Checkbox></Checkbox>
+                                        </Center>
+                                    </Th>
                                     <Th>
                                         <Center>{item.name}</Center>
                                     </Th>
