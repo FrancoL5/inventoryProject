@@ -28,11 +28,11 @@ export function ShowItemsTable({ items }: { items: ItemsWithID }) {
         <Card variant={"outline"}>
             <CardBody>
                 <TableContainer>
-                    <Table>
+                    <Table size="sm">
                         <Thead>
                             <Tr>
                                 <Th>
-                                    <Center>
+                                    <Center >
                                         <Checkbox
                                             isChecked={checkedAll}
                                             isIndeterminate={!checkedAll && checkedItems.length > 0}
@@ -64,11 +64,11 @@ export function ShowItemsTable({ items }: { items: ItemsWithID }) {
                                 </Th>
                             </Tr>
                         </Thead>
-                        <Tbody>
+                        <Tbody >
                             {items.map((item, i) => (
                                 <Tr key={i}>
-                                    <Th>
-                                        <Center>
+                                    <Th >
+                                        <Center >
                                             <Checkbox
                                                 isChecked={item.selected}
                                                 onChange={() => {
